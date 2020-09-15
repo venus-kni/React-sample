@@ -1,26 +1,70 @@
-import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, {useState} from 'react';
+import BooksList from './BooksList';
+import Search from './Search';
 
-const App = () => {
-  const [value, setValue] = useState(new Date().toLocaleTimeString());
+const Books =[
+    {
+        id:1,
+        name:'Programming',
+        author: 'x',
+        url: 'https://www.git.ir' 
+    },
+    {
+        id:2,
+        name:'History',
+        author: 'y',
+        url: 'https://www.git.ir' 
+    },
+    {
+        id:3,
+        name:'Pysics',
+        author: 'z',
+        url: 'https://www.git.ir' 
+    }
+];
 
-  useEffect(() => {
-    updateValue();
-  }, []);
+const App=() =>{
+    
 
-  useEffect(() => {
-    console.log("Value is updated!");
-  }, [value]);
 
-  const updateValue = () => {
-    setTimeout(() => {
-      setValue(new Date().toLocaleTimeString());
-      updateValue();
-    }, 1000);
-  };
+     const [searchText,setSearchText] = useState('');
 
-  return <div>{value}</div>;
-};
+
+     const handleSearch= event =>{
+         setSearchText(event.target.value);
+
+     }
+
+     const filterName = Books.filter (Books => {
+        return Books.name.includes(searchText) || Books.author.includes(searchText);
+        
+     });
+ 
+
+ 
+    return(
+    
+        <div>
+
+          <h1>List of Books</h1>
+
+          <hr/>
+
+            <Search onSearch={handleSearch} />
+
+            <BooksList Books={filterName} />   
+
+            
+           
+            
+        </div>
+    
+    );
+}
+
+
+
+
+
 
 export default App;
