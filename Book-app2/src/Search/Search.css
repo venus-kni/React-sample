@@ -1,0 +1,32 @@
+body {
+    margin: 100px;
+    background-color: gainsboro;
+    font-family: serif;
+    font-style: oblique;
+    border-style: dotted;   
+   
+
+   
+    
+    
+
+  }
+
+.serif {
+    font-family: "Times New Roman", Times, serif;
+  }
+
+
+
+label{
+    color: rgb(14, 13, 13);
+    font-weight: bold;
+    
+    
+}
+a{
+    color: brown;
+    
+}
+
+  
